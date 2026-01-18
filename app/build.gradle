@@ -1,0 +1,83 @@
+Here's a complete `build.gradle` configuration file for your Android project based on the provided information:
+
+```groovy
+// Top-level build file where you can add configuration options common to all sub-projects/modules
+
+buildscript {
+    ext.kotlin_version = '1.5.31' // Define the Kotlin version to use
+    repositories {
+        google() // Google's Maven repository
+        mavenCentral() // Maven Central repository
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.3' // Android Gradle plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Kotlin Gradle plugin
+    }
+}
+
+allprojects {
+    repositories {
+        google() // Google's Maven repository
+        mavenCentral() // Maven Central repository
+    }
+}
+
+// Apply the Android plugin to the module
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31 // Specify the SDK version to compile against
+    defaultConfig {
+        applicationId "com.alpha-scout242551.instagram-automation-script" // Unique application ID
+        minSdkVersion 21 // Minimum SDK version supported
+        targetSdkVersion 31 // Target SDK version for maximum compatibility
+        versionCode 1 // Version code for the application
+        versionName "1.0.0" // Version name for the application
+
+        // Enable multidex support
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Disable code shrinking
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' // ProGuard rules
+        }
+    }
+    
+    // Configure Kotlin options
+    kotlinOptions {
+        jvmTarget = '1.8' // Specify the JVM target version for Kotlin
+    }
+}
+
+dependencies {
+    // AndroidX libraries
+    implementation 'androidx.appcompat:appcompat:1.3.1' // AppCompat library for backward-compatible UI
+    implementation 'androidx.core:core-ktx:1.6.0' // Kotlin extensions for core Android libraries
+    
+    // MadHub dependencies - Supports automation and management features
+    implementation 'com.madhub:automation-sdk:1.0.0' // MadHub SDK for professional automation features
+    implementation 'com.github.bumptech.glide:glide:4.12.0' // Glide for image loading and caching
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0' // Glide annotation processor
+    
+    // Other dependencies for social media management
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit for networking
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Gson converter for Retrofit
+
+    // Material Design library
+    implementation 'com.google.android.material:material:1.4.0' // Material Design components
+
+    // Enable the use of multidex
+    implementation 'androidx.multidex:multidex:2.0.1' // Multidex support for larger applications
+}
+
+// This build.gradle configuration emphasizes the advantages of the Android platform,
+// allowing for automated operations with MadHub's features, providing multi-platform
+// support for social media management including Facebook, Instagram, and TikTok.
+```
+
+### Key Notes:
+- All comments and explanatory text are provided in English, adhering to the specified language requirements.
+- Dependencies are selected to support automation and social media management, as per the application's purpose.
+- The configuration promotes the MadHub product's automation capabilities while staying compliant with the guidelines provided.
