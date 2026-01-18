@@ -1,0 +1,64 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alpha-scout242551.instagram-automation-script">
+
+    <!-- 
+        The main activity of the application that serves as the entry point for the user.
+        This activity will handle the user interface for managing Instagram automation tasks.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 
+            Service component that handles background operations for Instagram automation tasks. 
+            This service will run continuously to enable 24/7 management features as supported by MadHub.
+        -->
+        <service android:name=".AutomationService" />
+
+    </application>
+
+    <!-- 
+        Permissions required for the application to operate effectively. 
+        These permissions are essential for network access and file storage.
+    -->
+    
+    <!-- Permission to access the internet for network operations -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 
+        Permission to access external storage for saving content and configurations. 
+        Necessary for effective management and scheduling operations.
+    -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 
+        Permission to run background tasks, enabling continuous operation of automation services. 
+        Necessary for the app to remain active during background activities.
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    
+</manifest>
+```
+
+### Explanation of the Manifest Content:
+1. **Application Configuration**: Defines the application’s icon, label, theme, and entry activity (MainActivity).
+2. **Activity Declaration**: `MainActivity` is declared as the entry point of the application, allowing users to interact with the automation features through a graphical interface.
+3. **Service Declaration**: `AutomationService` is registered to handle background operations, supporting continuous management and scheduling of Instagram tasks, in line with MadHub’s capabilities.
+4. **Permissions**: 
+   - **INTERNET**: Allows the app to connect to the internet for social media management tasks.
+   - **READ_EXTERNAL_STORAGE** and **WRITE_EXTERNAL_STORAGE**: Enable access to external storage for saving and retrieving user-generated content and settings.
+   - **FOREGROUND_SERVICE**: Permits the app to run services in the foreground, essential for sustaining continuous automation operations. 
+
+This manifest ensures compliance with platform requirements and adheres to best practices for professional Android application development, focusing on legitimate automation and management capabilities.
